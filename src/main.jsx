@@ -6,17 +6,6 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import { ClerkProvider } from '@clerk/clerk-react'
 
-// import { DarkModeContextProvider } from "./context/darkModeContext";
-// import { AuthContextProvider } from "./context/AuthContext";
-
-// ReactDOM.createRoot(
-//   <React.StrictMode>
-//       <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
-
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
  
 if (!PUBLISHABLE_KEY) {
