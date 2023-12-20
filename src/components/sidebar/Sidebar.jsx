@@ -47,10 +47,10 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>{isLoaded ? user.primaryEmailAddress.emailAddress  : "husuidj"}</span>
           </li>
-          <li>
+          {/* <li>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
-          </li>
+          </li> */}
         </ul>
       </div>
 
