@@ -1,0 +1,47 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.signin-container button {
+  font-size: 1.5em;
+  padding: 15px 30px; /* Adjust the padding to increase the button size */
+  opacity: 30%; /* Adjust the opacity to make it slightly opaque */
+  /* Add any other styles as needed */
+}
+
+
+.signed-out {
+  /* Styles for the main page when the user is signed out */
+  .background-logo {
+    background-image: url('./assets/logo.jpeg');
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Send the background logo to the back */
+    background-size: contain; /* Resize without cropping */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center center; /* Center the image */
+
+  }
+}
+
+.signed-in {
+  /* Styles for the main page when the user is signed in */
+  /* Add any specific styles for the signed-in state */
+}

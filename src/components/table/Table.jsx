@@ -82,6 +82,7 @@ const Table = ({ sheetID, websiteName }) => {
           onChange={handleDateChange}
           isClearable
           dateFormat="dd/MM/yyyy"
+          placeholderText="Select Date Range" 
         />
       </div>
       <table>

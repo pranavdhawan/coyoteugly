@@ -1,20 +1,22 @@
 .tableContainer {
-  flex: 4;
+  flex: 1; /* Adjust the flex value to control the width of the table container */
   padding: 10px;
   color: gray;
-
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-
+  max-width: 100%; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the table container on the screen */
+  
   table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 
     th, td {
-      border: 1px solid gray;
-      padding: 8px;
+      padding: 18px; /* Increase padding for better spacing */
+      border: 1px solid #ddd;
       text-align: left;
+      color: black;
     }
 
     th {

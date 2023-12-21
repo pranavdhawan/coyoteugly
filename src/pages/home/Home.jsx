@@ -8,12 +8,14 @@ import { useEffect, useState } from "react";
 import Table from "../../components/table/Table"
 import { useUser } from "@clerk/clerk-react";
 import axios from "axios";
+import LoadingSpinner from "../../components/loadingspinner/LoadingSpinner";
 
 const Home = () => {
   const [sheetNames, setSheetNames] = useState([]);
   const [sheetID, setSheetID] = useState([]);
   const [selectedSheet, setSelectedSheet] = useState([]);
   const [view, setView] = useState("chart"); // Default view is chart
+  const [loading, setLoading] = useState(true);
 
   
   const { isSignedIn, user, isLoaded } = useUser();
@@ -34,6 +36,8 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
+
       await fetchSheetID();
       const user_id = isLoaded ?? user.id;
       const clerkSecretKey = import.meta.env.VITE_CLERK_SECRET_KEY;
@@ -66,6 +70,8 @@ const Home = () => {
         const names = data.sheets.map((sheet) => sheet.properties.title);
         setSheetNames(names);
         setSelectedSheet(names[0]);
+        setLoading(false);
+
       } catch (error) {
         console.error(error);
       }
@@ -93,8 +99,14 @@ const Home = () => {
         </div>
 
         <div className="views">
-          {view === "chart" && <Chart sheetID={sheetID} websiteName={selectedSheet} />}
-          {view === "table" && <Table sheetID={sheetID} websiteName={selectedSheet} />}
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <>
+              {view === "chart" && <Chart sheetID={sheetID} websiteName={selectedSheet} />}
+              {view === "table" && <Table sheetID={sheetID} websiteName={selectedSheet} />}
+            </>
+          )}
         </div>
       </div>
     </div>

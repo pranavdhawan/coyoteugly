@@ -114,8 +114,8 @@ const Chart = ({ sheetID, websiteName }) => {
               >
                 <defs>
                   <linearGradient id={`${key}-gradient`} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#31a2c4" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#31a2c4" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="Date" stroke="gray" />
@@ -130,7 +130,7 @@ const Chart = ({ sheetID, websiteName }) => {
                 <Area
                   type="monotone"
                   dataKey={key}
-                  stroke="#8884d8"
+                  stroke="#31a2c4"
                   fillOpacity={1}
                   fill={`url(#${key}-gradient)`}
                 />
@@ -157,6 +157,7 @@ const Chart = ({ sheetID, websiteName }) => {
           onChange={handleDateChange}
           isClearable
           dateFormat="dd/MM/yyyy"
+          placeholderText="Select Date Range" 
         />
       </div>
       {renderCharts()}

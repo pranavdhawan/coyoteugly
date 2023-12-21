@@ -35,7 +35,12 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
       <div className="center">
         <ul>
           {names.map((site, index) => (
-            <li key={index} style={{ textDecoration: "none", background: selectedSheet == site ? "#a190ef" : "transparent" }} onClick={() => setSelectedSheet(site)} >
+            <li 
+              key={index} 
+              className={selectedSheet === site ? "selected" : ""}
+              style={{ textDecoration: "none", background: selectedSheet == site ? "#31a2c4" : "transparent" }} 
+              onClick={() => setSelectedSheet(site)}
+            >
               <DashboardIcon className="icon" />
               <span>{site}</span>
             </li>

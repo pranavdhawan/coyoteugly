@@ -10,19 +10,15 @@ import "./App.css"
 
 import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
 
-
 function App() {
-  const ProtectedRoute = ({children}) => {
-    const {user} = useContext(AuthContext)
-
-    return children
-  }
-
+  const { user } = useContext(AuthContext);
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${user ? "signed-in" : "signed-out"}`}>
       <SignedOut>
         <div className="signin-container">
+          {/* Background logo for signed-out state */}
+          <div className="background-logo" />
           <SignInButton />
         </div>
       </SignedOut>
@@ -33,7 +29,6 @@ function App() {
       </SignedIn>
     </div>
   );
-
 }
 
 export default App;

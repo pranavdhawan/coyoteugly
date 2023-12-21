@@ -9,17 +9,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 
     .logo {
       font-size: 20px;
       font-weight: bold;
-      color: #675948;
+      color: black;
     }
   }
 
   hr {
     height: 0;
-    border: 0.5px solid rgb(230, 227, 227);
+    // border: 0.5px solid rgb(230, 227, 227);
+    color: black;
   }
 
   .center {
@@ -33,7 +35,7 @@
       .title {
         font-size: 10px;
         font-weight: bold;
-        color: #999;
+        color: black;
         margin-top: 15px;
         margin-bottom: 5px;
       }
@@ -42,21 +44,27 @@
         display: flex;
         align-items: center;
         padding: 5px;
+        color: #fff; /* Set the default text color to white for better readability */
+        transition: background 0.3s ease; /* Add a smooth transition effect for the background color */
         cursor: pointer;
 
         &:hover {
-          background-color: #a190ef;
+          background-color: #31a2c4;
+        }
+
+        &:selected {
+          background-color: #31a2c4; /* Set the background color for the selected sheet */
         }
 
         .icon {
           font-size: 18px;
-          color: #675948;
+          color: black;
         }
 
         span{
             font-size: 13px;
             font-weight: 600;
-            color: #888;
+            color: black;
             margin-left: 10px;
         }
       }
