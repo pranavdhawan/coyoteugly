@@ -31,10 +31,10 @@ const Chart = ({ sheetID, websiteName }) => {
     try {
       const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:batchGet?ranges=${websiteName}&majorDimension=ROWS&key=${key}`;
 
-      console.log("datah: ")
-      console.log(sheetID)
-      console.log(websiteName)
-      console.log(key)
+      // console.log("datah: ")
+      // console.log(sheetID)
+      // console.log(websiteName)
+      // console.log(key)
       
       const response = await fetch(endpoint);
       const result = await response.json();

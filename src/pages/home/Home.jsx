@@ -57,7 +57,7 @@ const Home = () => {
               'Content-Type': 'application/json'
             }
           });
-          console.log(response.data);
+          // console.log(response.data);
         } catch (error) {
           console.error(error);
         }
