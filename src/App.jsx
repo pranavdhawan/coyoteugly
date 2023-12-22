@@ -24,8 +24,8 @@ function App() {
       </SignedOut>
       <SignedIn>
         <Home />
-        <SignOutButton afterSignOutUrl="/" />
-        <p>This content is private. Only signed-in users can see the SignOutButton above this text.</p>
+        {/* <SignOutButton afterSignOutUrl="/" />
+        <p>This content is private. Only signed-in users can see the SignOutButton above this text.</p> */}
       </SignedIn>
     </div>
   );

@@ -17,6 +17,7 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 import Chart from "../chart/Chart";
 import { useUser } from "@clerk/clerk-react";
+import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
 
 
 
@@ -52,6 +53,10 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>{isLoaded ? user.primaryEmailAddress.emailAddress  : "husuidj"}</span>
           </li>
+          <li>
+          <SignOutButton afterSignOutUrl="/" />
+          </li>
+                  
           {/* <li>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>

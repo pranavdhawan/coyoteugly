@@ -105,7 +105,7 @@ const Chart = ({ sheetID, websiteName }) => {
 
         return (
           <div key={key} className="chart-container">
-            <ResponsiveContainer width="100%" aspect={2 / 1}>
+            {/* <ResponsiveContainer width="100%" aspect={3/ 1}> */}
               <AreaChart
                 width={730}
                 height={250}
@@ -135,7 +135,7 @@ const Chart = ({ sheetID, websiteName }) => {
                   fill={`url(#${key}-gradient)`}
                 />
               </AreaChart>
-            </ResponsiveContainer>
+            {/* </ResponsiveContainer> */}
             <div className="total-value">
               Total {displayName}: {totalFormatted}
             </div>
@@ -160,7 +160,7 @@ const Chart = ({ sheetID, websiteName }) => {
           placeholderText="Select Date Range" 
         />
       </div>
-      {renderCharts()}
+        {renderCharts()}
     </div>
   );
 };

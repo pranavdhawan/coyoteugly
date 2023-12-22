@@ -9,17 +9,20 @@
 }
 
 
-.signin-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+signin-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  padding: 20px; /* Add padding for better visibility on small screens */
 }
 
 .signin-container button {
   font-size: 1.5em;
-  padding: 15px 30px; /* Adjust the padding to increase the button size */
-  opacity: 30%; /* Adjust the opacity to make it slightly opaque */
+  padding: 15px 30px;
+  opacity: 0.3;
   /* Add any other styles as needed */
 }
 
@@ -34,7 +37,7 @@
     top: 0;
     left: 0;
     z-index: -1; /* Send the background logo to the back */
-    background-size: contain; /* Resize without cropping */
+    background-size: cover; /* Resize without cropping */
     background-repeat: no-repeat; /* Prevent image repetition */
     background-position: center center; /* Center the image */
 
