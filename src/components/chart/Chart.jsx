@@ -78,7 +78,7 @@ const Chart = ({ sheetID, websiteName }) => {
     }
 
     const filteredData = chartData.filter((item) => {
-      const formattedDate = item.Date; // Use the correct key for the date column
+      const formattedDate = item.Date;
       const startDateMatch =
         !startDate || new Date(formattedDate.split('/').reverse().join('/')) >= startDate;
       const endDateMatch =
@@ -131,7 +131,7 @@ const Chart = ({ sheetID, websiteName }) => {
                   type="number"
                   stroke="gray"
                   domain={domain}
-                  tickFormatter={(value) => (key === "Revenue" ? `$${value}` : value)}
+                  tickFormatter={(value) => ((key === "Impressions") ? `$${value}` : value)}
                 />
                 <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
                 <Tooltip />
