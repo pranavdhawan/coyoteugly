@@ -5,6 +5,11 @@
   padding: 10px;
   color: gray;
 
+  .chart-container{
+    font-weight: 500;
+    font-size: 13px;
+  }
+
   .title {
     margin-bottom: 20px;
     font-weight: bold;
@@ -13,6 +18,7 @@
 
   .total-value {
     font-weight: bold;
+    text-align: right;
     /* Add other styles as needed */
   }
 

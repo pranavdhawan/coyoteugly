@@ -1,3 +1,7 @@
+*{
+  font-family: sans-serif;
+}
+
 .sidebar {
   flex: 1;
   border-right: 0.5px solid rgb(230, 227, 227);
@@ -9,7 +13,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
 
     .logo {
       font-size: 20px;
@@ -20,7 +23,6 @@
 
   hr {
     height: 0;
-    // border: 0.5px solid rgb(230, 227, 227);
     color: black;
   }
 
@@ -44,16 +46,21 @@
         display: flex;
         align-items: center;
         padding: 5px;
-        color: #fff; /* Set the default text color to white for better readability */
-        transition: background 0.3s ease; /* Add a smooth transition effect for the background color */
+        color: #fff;
+        transition: background 0.3s ease;
         cursor: pointer;
 
         &:hover {
           background-color: #31a2c4;
         }
 
-        &:selected {
-          background-color: #31a2c4; /* Set the background color for the selected sheet */
+        &.selected {
+          background-color: #31a2c4;
+
+          .icon,
+          span {
+            color: white;
+          }
         }
 
         .icon {
@@ -61,38 +68,38 @@
           color: black;
         }
 
-        span{
-            font-size: 13px;
-            font-weight: 600;
-            color: black;
-            margin-left: 10px;
+        span {
+          font-size: 13px;
+          font-weight: 200;
+          color: black;
+          margin-left: 10px;
         }
       }
     }
   }
 
-  .bottom{
-      display: flex;
-      align-items: center;
-      margin: 10px;
+  .bottom {
+    display: flex;
+    align-items: center;
+    margin: 10px;
 
-      .colorOption{
-          width: 20px;
-          height: 20px;
-          border-radius: 5px;
-          border: 1px solid #675948;
-          cursor: pointer;
-          margin: 5px;
+    .colorOption {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      border: 1px solid #675948;
+      cursor: pointer;
+      margin: 5px;
 
-          &:nth-child(1){
-              background-color: whitesmoke;
-          }
-          &:nth-child(2){
-              background-color: #333;
-          }
-          &:nth-child(3){
-              background-color: darkblue;
-          }
+      &:nth-child(1) {
+        background-color: whitesmoke;
       }
+      &:nth-child(2) {
+        background-color: #333;
+      }
+      &:nth-child(3) {
+        background-color: darkblue;
+      }
+    }
   }
 }

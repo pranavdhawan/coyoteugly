@@ -29,7 +29,7 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">Dashboard</span>
+          <span className="logo">Monetise Up</span>
         </Link>
       </div>
       <hr />

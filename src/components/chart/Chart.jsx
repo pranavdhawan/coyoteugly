@@ -100,11 +100,19 @@ const Chart = ({ sheetID, websiteName }) => {
 
         let total = values.reduce((acc, value) => acc + value, 0);
 
-        const totalFormatted =
-          key === "Revenue" ? `$${total.toFixed(2)}` : total.toLocaleString();
+        // const totalFormatted =
+        //   key === "Revenue" ? `$${total.toFixed(2)}` : total.toLocaleString();
+        let totalFormatted = total.toLocaleString();
+
+        if (displayName !== "Impressions") {
+          totalFormatted = `$${total.toFixed(2)}`;
+        }
 
         return (
           <div key={key} className="chart-container">
+             <div className="total-value">
+              Total {displayName}: {totalFormatted}
+            </div>
             {/* <ResponsiveContainer width="100%" aspect={3/ 1}> */}
               <AreaChart
                 width={730}
@@ -136,9 +144,7 @@ const Chart = ({ sheetID, websiteName }) => {
                 />
               </AreaChart>
             {/* </ResponsiveContainer> */}
-            <div className="total-value">
-              Total {displayName}: {totalFormatted}
-            </div>
+           
           </div>
         );
       });
