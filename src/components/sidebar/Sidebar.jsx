@@ -54,7 +54,7 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
             <span>{isLoaded ? user.primaryEmailAddress.emailAddress  : "husuidj"}</span>
           </li>
           <li>
-          <SignOutButton afterSignOutUrl="/" />
+          <SignOutButton aftersignouturl="/" />
           </li>
                   
           {/* <li>

@@ -99,9 +99,6 @@ const Chart = ({ sheetID, websiteName }) => {
         const domain = [minValue, maxValue];
 
         let total = values.reduce((acc, value) => acc + value, 0);
-
-        // const totalFormatted =
-        //   key === "Revenue" ? `$${total.toFixed(2)}` : total.toLocaleString();
         let totalFormatted = total.toLocaleString();
 
         if (displayName !== "Impressions") {
@@ -121,7 +118,7 @@ const Chart = ({ sheetID, websiteName }) => {
                 margin={{ top: 30, right: 30, left: 50, bottom: 20 }}
               >
                 <defs>
-                  <linearGradient id={`${key}-gradient`} x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id={`common-gradient`} x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#31a2c4" stopOpacity={0.8} />
                     <stop offset="95%" stopColor="#31a2c4" stopOpacity={0} />
                   </linearGradient>
@@ -140,7 +137,7 @@ const Chart = ({ sheetID, websiteName }) => {
                   dataKey={key}
                   stroke="#31a2c4"
                   fillOpacity={1}
-                  fill={`url(#${key}-gradient)`}
+                  fill={"url(#common-gradient)"}
                 />
               </AreaChart>
             {/* </ResponsiveContainer> */}

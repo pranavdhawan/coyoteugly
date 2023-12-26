@@ -2,7 +2,6 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
 import Widget from "../../components/widget/Widget";
-import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
 import { useEffect, useState } from "react";
 import Table from "../../components/table/Table"
@@ -20,7 +19,7 @@ const Home = () => {
   
   const { isSignedIn, user, isLoaded } = useUser();
   
-  console.log(user.primaryEmailAddress.emailAddress)
+  // console.log(user.primaryEmailAddress.emailAddress)
   
   let key = import.meta.env.VITE_CLIENT_KEY
 
