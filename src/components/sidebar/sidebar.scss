@@ -42,6 +42,12 @@
         margin-bottom: 5px;
       }
 
+      .note {
+        padding: 10px;
+        max-width: 200px;
+        overflow: hidden;
+      }
+
       li {
         display: flex;
         align-items: center;

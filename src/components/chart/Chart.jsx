@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./chart.scss";
+import Footer from "../footer/Footer";
 
 const convertToNumber = (value) => {
   return parseFloat(value.replace(/\$/g, ""));
@@ -128,7 +129,7 @@ const Chart = ({ sheetID, websiteName }) => {
                   type="number"
                   stroke="gray"
                   domain={domain}
-                  tickFormatter={(value) => ((key === "Impressions") ? `$${value}` : value)}
+                  tickFormatter={(value) => ((key === "Impressions") ? value : `$${value}`)}
                 />
                 <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
                 <Tooltip />
@@ -164,6 +165,7 @@ const Chart = ({ sheetID, websiteName }) => {
         />
       </div>
         {renderCharts()}
+        {/* <Footer></Footer> */}
     </div>
   );
 };

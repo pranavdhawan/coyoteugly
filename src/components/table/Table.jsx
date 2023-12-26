@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./table.scss";
+import Footer from "../footer/Footer";
 
 const Table = ({ sheetID, websiteName }) => {
   const [tableData, setTableData] = useState([]);
@@ -91,6 +92,7 @@ const Table = ({ sheetID, websiteName }) => {
         </thead>
         <tbody>{renderTableData()}</tbody>
       </table>
+      {/* <Footer></Footer> */}
     </div>
   );
 };

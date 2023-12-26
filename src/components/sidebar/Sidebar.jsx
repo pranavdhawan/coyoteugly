@@ -18,6 +18,7 @@ import { useState, useEffect } from "react";
 import Chart from "../chart/Chart";
 import { useUser } from "@clerk/clerk-react";
 import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
+import Footer from "../footer/Footer";
 
 
 
@@ -54,7 +55,10 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
             <span>{isLoaded ? user.primaryEmailAddress.emailAddress  : "husuidj"}</span>
           </li>
           <li>
-          <SignOutButton aftersignouturl="/" />
+            <SignOutButton aftersignouturl="/" />
+          </li>
+          <li className="note">
+            <span>Note: This dashboard indicates total revenue including the share of MonetiseUP and if there is any discrepancy we will notify you from our end.</span>
           </li>
                   
           {/* <li>
