@@ -1,12 +1,13 @@
 /* Common styles for both desktop and mobile */
+/* Common styles for both desktop and mobile */
 .home {
   display: flex;
+  flex-direction: row; /* Change the main axis to column for better stacking on mobile */
 
   .homeContainer {
-    flex: 6;
-
     .viewToggle {
       display: flex;
+      flex-direction: row; //maybe column
       gap: 10px;
       margin-bottom: 10px;
 
@@ -24,26 +25,3 @@
   }
 }
 
-/* Styles for desktop screens */
-@media (min-width: 768px) {
-  .home {
-    .homeContainer {
-      .views {
-        flex-direction: row;
-      }
-    }
-  }
-}
-
-/* Styles for mobile screens */
-@media (max-width: 767px) {
-  .home {
-    .homeContainer {
-      .views {
-        flex-direction: column;
-      }
-    }
-  }
-
-
-}

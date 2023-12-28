@@ -30,7 +30,7 @@ signin-container {
 .signed-out {
   /* Styles for the main page when the user is signed out */
   .background-logo {
-    background-image: url('./assets/logo.jpeg');
+    background-image: url('./assets/bg.png');
     width: 100%; /* Adjust as needed */
     height: 100%; /* Adjust as needed */
     position: fixed;
