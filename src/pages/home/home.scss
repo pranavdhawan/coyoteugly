@@ -1,10 +1,14 @@
-/* Common styles for both desktop and mobile */
-/* Common styles for both desktop and mobile */
 .home {
-  display: flex;
-  flex-direction: row; /* Change the main axis to column for better stacking on mobile */
+  background-image: url('../../assets/frame.png'); /* Adjust the path to your background image */
+  background: size 100%;/* Resize the background image to cover the entire container */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed;
+}
+.home {
 
   .homeContainer {
+    
     .viewToggle {
       display: flex;
       flex-direction: row; //maybe column
@@ -18,8 +22,6 @@
     }
 
     .views {
-      display: flex;
-      flex-direction: column;
       gap: 20px;
     }
   }

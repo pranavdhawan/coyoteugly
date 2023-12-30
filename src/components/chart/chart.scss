@@ -1,29 +1,44 @@
 .chart {
-  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-  padding: 10px;
-  color: gray;
+  padding: 20px;
+  color: rgb(98, 98, 98);
 
-  .chart-container{
+  .chart-container {
+    width: 100%; /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
     font-weight: 500;
-    font-size: 13px;
+    font-size: 16px;
+    text-align: center;
   }
 
   .title {
     margin-bottom: 20px;
     font-weight: bold;
-
   }
 
   .total-value {
     font-weight: bold;
-    text-align: right;
+    text-align: center;
     /* Add other styles as needed */
   }
-
 
   .chartGrid {
     stroke: rgb(228, 225, 225);
   }
+
+  .chart-container canvas {
+    max-width: 100%;
+  }
+  
+  /* If you're using Chart.js v3, you can use the following style instead */
+  .chart-container canvas.chartjs-render-monitor {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
 }

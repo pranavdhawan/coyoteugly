@@ -36,7 +36,7 @@ const Chart = ({ sheetID, websiteName }) => {
       // console.log(sheetID)
       // console.log(websiteName)
       // console.log(key)
-      
+
       const response = await fetch(endpoint);
       const result = await response.json();
 
@@ -108,41 +108,48 @@ const Chart = ({ sheetID, websiteName }) => {
 
         return (
           <div key={key} className="chart-container">
-             <div className="total-value">
+            
+            {/* <ResponsiveContainer width="100%" aspect={3/ 1}> */}
+            <AreaChart
+              width={730}
+              height={250}
+              data={filteredData}
+              margin={{ top: 30, right: 30, left: 50, bottom: 20 }}
+            >
+              <defs>
+                <linearGradient id={"common-gradient"} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#31a2c4" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#31a2c4" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <XAxis
+                dataKey="Date"
+                stroke="gray"
+                angle={0}
+                interval={filteredData.length > 20 ? 8 : 3}
+                textAnchor="end"
+              />
+              <YAxis
+                type="number"
+                stroke="gray"
+                domain={domain}
+                tickFormatter={(value) => ((key === "Impressions") ? value : `$${value}`)}
+              />
+              <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
+              <Tooltip />
+              <Area
+                type="monotone"
+                dataKey={key}
+                stroke="#31a2c4"
+                fillOpacity={1}
+                fill={"url(#common-gradient)"}
+              />
+            </AreaChart>
+            <div className="total-value">
               Total {displayName}: {totalFormatted}
             </div>
-            {/* <ResponsiveContainer width="100%" aspect={3/ 1}> */}
-              <AreaChart
-                width={730}
-                height={250}
-                data={filteredData}
-                margin={{ top: 30, right: 30, left: 50, bottom: 20 }}
-              >
-                <defs>
-                  <linearGradient id={"common-gradient"} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#31a2c4" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="#31a2c4" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <XAxis dataKey="Date" stroke="gray" />
-                <YAxis
-                  type="number"
-                  stroke="gray"
-                  domain={domain}
-                  tickFormatter={(value) => ((key === "Impressions") ? value : `$${value}`)}
-                />
-                <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
-                <Tooltip />
-                <Area
-                  type="monotone"
-                  dataKey={key}
-                  stroke="#31a2c4"
-                  fillOpacity={1}
-                  fill={"url(#common-gradient)"}
-                />
-              </AreaChart>
             {/* </ResponsiveContainer> */}
-           
+
           </div>
         );
       });
@@ -161,11 +168,11 @@ const Chart = ({ sheetID, websiteName }) => {
           onChange={handleDateChange}
           isClearable
           dateFormat="dd/MM/yyyy"
-          placeholderText="Select Date Range" 
+          placeholderText="Select Date Range"
         />
       </div>
-        {renderCharts()}
-        {/* <Footer></Footer> */}
+      {renderCharts()}
+      {/* <Footer></Footer> */}
     </div>
   );
 };

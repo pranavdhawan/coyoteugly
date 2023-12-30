@@ -61,10 +61,7 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
             <span>Note: This dashboard indicates total revenue including the share of MonetiseUP and if there is any discrepancy we will notify you from our end.</span>
           </li>
                   
-          {/* <li>
-            <ExitToAppIcon className="icon" />
-            <span>Logout</span>
-          </li> */}
+          
         </ul>
       </div>
 
