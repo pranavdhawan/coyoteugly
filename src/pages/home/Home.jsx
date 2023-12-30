@@ -13,7 +13,7 @@ const Home = () => {
   const [sheetNames, setSheetNames] = useState([]);
   const [sheetID, setSheetID] = useState([]);
   const [selectedSheet, setSelectedSheet] = useState([]);
-  const [view, setView] = useState("table"); // Default view is chart
+  const [view, setView] = useState("chart"); // Default view is chart
   const [loading, setLoading] = useState(true);
 
   
