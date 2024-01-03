@@ -13,14 +13,24 @@ const Home = () => {
   const [sheetNames, setSheetNames] = useState([]);
   const [sheetID, setSheetID] = useState([]);
   const [selectedSheet, setSelectedSheet] = useState([]);
-  const [view, setView] = useState("chart"); // Default view is chart
+
+
+  const getDefaultView = () => {
+    // Set default view based on device width
+    return window.innerWidth > 600 ? 'chart' : 'table';
+  };
+
+
+
+  const [view, setView] = useState(getDefaultView()); // Set default view based on device width
+
   const [loading, setLoading] = useState(true);
 
-  
+
   const { isSignedIn, user, isLoaded } = useUser();
-  
+
   // console.log(user.primaryEmailAddress.emailAddress)
-  
+
   let key = import.meta.env.VITE_CLIENT_KEY
 
   const fetchSheetID = async () => {
@@ -32,6 +42,7 @@ const Home = () => {
       console.error('Error fetching sheetID:', error.message);
     }
   };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -88,14 +99,16 @@ const Home = () => {
       <Sidebar names={sheetNames} selectedSheet={selectedSheet} setSelectedSheet={setSelectedSheet} />
       <div className="homeContainer">
         <br />
-        <div className="viewToggle">
-          <button onClick={() => handleViewChange("chart")} disabled={view === "chart"}>
-            Chart View
-          </button>
-          <button onClick={() => handleViewChange("table")} disabled={view === "table"}>
-            Table View
-          </button>
-        </div>
+        {window.innerWidth > 600 ? (
+          <div className="viewToggle">
+            <button onClick={() => handleViewChange("chart")} disabled={view === "chart"}>
+              Chart View
+            </button>
+            <button onClick={() => handleViewChange("table")} disabled={view === "table"}>
+              Table View
+            </button>
+          </div>
+        ) : (<></>)}
 
         <div className="views">
           {loading ? (
