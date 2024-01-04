@@ -8,6 +8,8 @@ import Table from "../../components/table/Table"
 import { useUser } from "@clerk/clerk-react";
 import axios from "axios";
 import LoadingSpinner from "../../components/loadingspinner/LoadingSpinner";
+import { Helmet } from 'react-helmet';
+
 
 const Home = () => {
   const [sheetNames, setSheetNames] = useState([]);
@@ -96,6 +98,11 @@ const Home = () => {
 
   return (
     <div className="home">
+            <Helmet>
+        <meta name="viewport" content="width=600px, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      </Helmet>
+
+
       <Sidebar names={sheetNames} selectedSheet={selectedSheet} setSelectedSheet={setSelectedSheet} />
       <div className="homeContainer">
         <br />
