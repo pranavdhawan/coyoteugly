@@ -21,6 +21,7 @@ const Chart = ({ sheetID, websiteName }) => {
   const [chartData, setChartData] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [filtered, setFiltered] = useState(false)
 
   // const sheetID = import.meta.env.VITE_CLIENT_ID;
   // const key = import.meta.env.VITE_CLIENT_KEY;
@@ -71,7 +72,14 @@ const Chart = ({ sheetID, websiteName }) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
+    if(startDate == null && endDate == null) {
+      setFiltered(false)
+    } else {
+      setFiltered(true)
+    }
   };
+
+
 
   const renderCharts = () => {
     if (chartData.length === 0) {
@@ -88,12 +96,16 @@ const Chart = ({ sheetID, websiteName }) => {
       return startDateMatch && endDateMatch;
     });
 
-    const chartElements = Object.keys(filteredData[0])
+    const last7DaysData = filteredData.slice(-7); // Get only the last 7 days of data
+
+    const dataToShow = filtered == true ? filteredData : last7DaysData
+
+    const chartElements = Object.keys(dataToShow[0])
       .filter((key) => key !== "Date" && key !== "Website")
       .map((key) => {
         const displayName = key; // Add more mappings as needed
 
-        const values = filteredData.map((entry) => entry[key]);
+        const values = dataToShow.map((entry) => entry[key]);
 
         const minValue = Math.min(...values);
         const maxValue = Math.max(...values);
@@ -113,7 +125,7 @@ const Chart = ({ sheetID, websiteName }) => {
             <AreaChart
               width={730}
               height={250}
-              data={filteredData}
+              data={dataToShow}
               margin={{ top: 30, right: 30, left: 50, bottom: 20 }}
             >
               <defs>
@@ -126,7 +138,7 @@ const Chart = ({ sheetID, websiteName }) => {
                 dataKey="Date"
                 stroke="gray"
                 angle={0}
-                interval={filteredData.length > 20 ? 8 : 3}
+                interval={dataToShow }
                 textAnchor="end"
               />
               <YAxis
