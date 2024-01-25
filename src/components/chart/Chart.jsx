@@ -145,7 +145,8 @@ const Chart = ({ sheetID, websiteName }) => {
                 type="number"
                 stroke="gray"
                 domain={domain}
-                tickFormatter={(value) => ((key === "Impressions") ? value : `$${value}`)}
+                //tickFormatter={(value) => ((key === "Impressions") ? value : `$${value}`)}
+tickFormatter={(value) => (key === "Impressions" ? value : value)}
               />
               <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
               <Tooltip />
