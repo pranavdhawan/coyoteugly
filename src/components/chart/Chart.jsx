@@ -105,18 +105,38 @@ const Chart = ({ sheetID, websiteName }) => {
       .map((key) => {
         const displayName = key; // Add more mappings as needed
 
+
         const values = dataToShow.map((entry) => entry[key]);
 
         const minValue = Math.min(...values);
         const maxValue = Math.max(...values);
         const domain = [minValue, maxValue];
 
+
+        // total calculation
         let total = values.reduce((acc, value) => acc + value, 0);
         let totalFormatted = total.toLocaleString();
 
         if (displayName !== "Impressions") {
           totalFormatted = `$${total.toFixed(2)}`;
         }
+
+        let averageFormatted = null
+
+        // average calculation
+        if(key === 'CPM') {
+          const average = values.reduce((acc, value) => acc + value, 0) / values.length; 
+
+          averageFormatted = average.toLocaleString();
+      
+          if (displayName !== "Impressions") {
+            averageFormatted = `$${average.toFixed(2)}`;
+          }
+
+          console.log(averageFormatted)
+        }
+        
+    
 
         return (
           <div key={key} className="chart-container">
@@ -158,9 +178,18 @@ tickFormatter={(value) => (key === "Impressions" ? value : value)}
                 fill={"url(#common-gradient)"}
               />
             </AreaChart>
-            <div className="total-value">
+
+            {key === 'CPM' ? 
+          <div className="total-value">
+          Average {displayName}: {averageFormatted}
+        </div>
+        : 
+        <div className="total-value">
               Total {displayName}: {totalFormatted}
-            </div>
+            </div>  
+          }
+
+           
             {/* </ResponsiveContainer> */}
 
           </div>
