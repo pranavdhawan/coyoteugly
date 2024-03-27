@@ -14,7 +14,9 @@ import "./chart.scss";
 import Footer from "../footer/Footer";
 
 const convertToNumber = (value) => {
-  return parseFloat(value.replace(/\$/g, ""));
+  const cleanedValue = value.replace(/,/g, "").replace(/\$/g, "");
+  return parseFloat(cleanedValue);
+
 };
 
 const Chart = ({ sheetID, websiteName }) => {
