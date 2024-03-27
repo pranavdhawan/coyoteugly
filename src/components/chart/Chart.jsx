@@ -126,7 +126,7 @@ const Chart = ({ sheetID, websiteName }) => {
         let averageFormatted = null
 
         // average calculation
-        if(key === 'CPM') {
+        if(key === 'eCPM') {
           const average = values.reduce((acc, value) => acc + value, 0) / values.length; 
 
           averageFormatted = average.toLocaleString();
@@ -137,6 +137,7 @@ const Chart = ({ sheetID, websiteName }) => {
 
           console.log(averageFormatted)
         }
+        
         
     
 
@@ -181,7 +182,7 @@ tickFormatter={(value) => (key === "Impressions" ? value : value)}
               />
             </AreaChart>
 
-            {key === 'CPM' ? 
+            {key === 'eCPM' ? 
           <div className="total-value">
           Average {displayName}: {averageFormatted}
         </div>
