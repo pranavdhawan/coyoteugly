@@ -164,13 +164,20 @@ const Chart = ({ sheetID, websiteName }) => {
                 interval={dataToShow }
                 textAnchor="end"
               />
-              <YAxis
-                type="number"
-                stroke="gray"
-                domain={domain}
-                //tickFormatter={(value) => ((key === "Impressions") ? value : `$${value}`)}
-tickFormatter={(value) => (key === "Impressions" ? value : value)}
-              />
+                <YAxis
+    type="number"
+    stroke="gray"
+    domain={domain}
+    tickFormatter={(value) => {
+      if (key === "Fill Rate") {
+        return `${value}%`;
+      } else if (key === "Impressions") {
+        return value;
+      } else {
+        return `$${value.toFixed(2)}`;
+      }
+    }}
+  />
               <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
               <Tooltip />
               <Area
