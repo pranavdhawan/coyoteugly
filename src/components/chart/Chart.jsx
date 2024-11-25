@@ -74,7 +74,7 @@ const Chart = ({ sheetID, websiteName }) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
-    if(startDate == null && endDate == null) {
+    if (startDate == null && endDate == null) {
       setFiltered(false)
     } else {
       setFiltered(true)
@@ -119,31 +119,35 @@ const Chart = ({ sheetID, websiteName }) => {
         let total = values.reduce((acc, value) => acc + value, 0);
         let totalFormatted = total.toLocaleString();
 
-        if (displayName !== "Impressions") {
+        if (displayName !== "Impressions" && displayName !== "Ad Requests" ) {
           totalFormatted = `$${total.toFixed(2)}`;
         }
 
         let averageFormatted = null
 
         // average calculation
-        if(key === 'eCPM' || key === 'Fill Rate') {
-          const average = values.reduce((acc, value) => acc + value, 0) / values.length; 
+        if (key === 'eCPM' || key === 'Fill Rate') {
+          const average = values.reduce((acc, value) => acc + value, 0) / values.length;
 
           averageFormatted = average.toLocaleString();
-      
-          if (displayName !== "Impressions") {
+
+          if (displayName === "Fill Rate") {
+            averageFormatted = `${average.toFixed(2)}%`;
+          }
+
+          if (displayName !== "Impressions" && displayName !== "Fill Rate") {
             averageFormatted = `$${average.toFixed(2)}`;
           }
 
           console.log(averageFormatted)
         }
-        
-        
-    
+
+
+
 
         return (
           <div key={key} className="chart-container">
-            
+
             {/* <ResponsiveContainer width="100%" aspect={3/ 1}> */}
             <AreaChart
               width={730}
@@ -161,23 +165,23 @@ const Chart = ({ sheetID, websiteName }) => {
                 dataKey="Date"
                 stroke="gray"
                 angle={0}
-                interval={dataToShow }
+                interval={dataToShow}
                 textAnchor="end"
               />
-                <YAxis
-    type="number"
-    stroke="gray"
-    domain={domain}
-    tickFormatter={(value) => {
-      if (key === "Fill Rate") {
-        return `${value}%`;
-      } else if (key === "Impressions") {
-        return value;
-      } else {
-        return `$${value.toFixed(2)}`;
-      }
-    }}
-  />
+              <YAxis
+                type="number"
+                stroke="gray"
+                domain={domain}
+                tickFormatter={(value) => {
+                  if (key === "Fill Rate") {
+                    return `${value}%`;
+                  } else if (key === "Impressions") {
+                    return value;
+                  } else {
+                    return `$${value.toFixed(2)}`;
+                  }
+                }}
+              />
               <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
               <Tooltip />
               <Area
@@ -189,17 +193,17 @@ const Chart = ({ sheetID, websiteName }) => {
               />
             </AreaChart>
 
-            {key === 'eCPM' || key === 'Fill Rate' ? 
-          <div className="total-value">
-          Average {displayName}: {averageFormatted}
-        </div>
-        : 
-        <div className="total-value">
-              Total {displayName}: {totalFormatted}
-            </div>  
-          }
+            {key === 'eCPM' || key === 'Fill Rate' ?
+              <div className="total-value">
+                Average {displayName}: {averageFormatted}
+              </div>
+              :
+              <div className="total-value">
+                Total {displayName}: {totalFormatted}
+              </div>
+            }
 
-           
+
             {/* </ResponsiveContainer> */}
 
           </div>
