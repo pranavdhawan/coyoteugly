@@ -175,7 +175,7 @@ const Chart = ({ sheetID, websiteName }) => {
                 tickFormatter={(value) => {
                   if (key === "Fill Rate") {
                     return `${value}%`;
-                  } else if (key === "Impressions") {
+                  } else if (key === "Impressions" || key === "Ad Requests") {
                     return value;
                   } else {
                     return `$${value.toFixed(2)}`;
