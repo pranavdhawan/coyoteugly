@@ -58,7 +58,7 @@ const Sidebar = ({ names, selectedSheet, setSelectedSheet }) => {
             <SignOutButton aftersignouturl="/" />
           </li>
           <li className="note">
-            <span>Note: This dashboard indicates total revenue including the share of MonetiseUP and if there is any discrepancy we will notify you from our end.</span>
+            <span>{user.primaryEmailAddress.emailAddress === 'sujit.jha@pocketfm.com' ? "" : "Note: This dashboard indicates total revenue including the share of MonetiseUP and if there is any discrepancy we will notify you from our end."}</span>
           </li>
                   
           
