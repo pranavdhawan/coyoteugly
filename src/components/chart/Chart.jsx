@@ -119,9 +119,12 @@ const Chart = ({ sheetID, websiteName }) => {
         let total = values.reduce((acc, value) => acc + value, 0);
         let totalFormatted = total.toLocaleString();
 
-        if (displayName !== "Impressions" && displayName !== "Ad Requests" ) {
+        const nondollarvalues = ["Impressions", "Ad Requests", "Ad Impressions"]
+
+        if(!nondollarvalues.includes(displayName)) {
           totalFormatted = `$${total.toFixed(2)}`;
         }
+
 
         let averageFormatted = null
 
@@ -175,7 +178,7 @@ const Chart = ({ sheetID, websiteName }) => {
                 tickFormatter={(value) => {
                   if (key === "Fill Rate") {
                     return `${value}%`;
-                  } else if (key === "Impressions" || key === "Ad Requests") {
+                  } else if (key === "Impressions" || key === "Ad Requests" || key === "Ad Impressions") {
                     return value;
                   } else {
                     return `$${value.toFixed(2)}`;
