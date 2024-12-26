@@ -75,18 +75,29 @@ const Home = () => {
         }
       }
 
+      // try {
+      //   const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}?key=${key}`;
+      //   const response = await fetch(endpoint);
+      //   const data = await response.json();
+      //   const names = data.sheets.map((sheet) => sheet.properties.title);
+      //   setSheetNames(names);
+      //   setSelectedSheet(names[0]);
+      //   setLoading(false);
+
+      // } catch (error) {
+      //   console.error(error);
+      // }
+
       try {
-        const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}?key=${key}`;
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        const names = data.sheets.map((sheet) => sheet.properties.title);
+        const response = await axios.get(`https://apnabackend.onrender.com/api/sheets-data?sheetID=${sheetID}&key=${key}`);
+        const names = response.data.sheets.map((sheet) => sheet.properties.title);
         setSheetNames(names);
         setSelectedSheet(names[0]);
         setLoading(false);
-
       } catch (error) {
         console.error(error);
       }
+
     };
 
     fetchData();
